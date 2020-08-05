@@ -6,6 +6,7 @@ import { Line } from 'react-chartjs-2';
 import { Bubble } from 'react-chartjs-2';
 
 const ChartsExamplesPage = () => {
+    
     let data = {
         labels: ['a', 'b', 'c', 'www'],
         datasets: [
@@ -111,7 +112,8 @@ const ChartsExamplesPage = () => {
                 <div className='row justify-content-center'>
                     <div className='col col-md-5'>
                         <h1>Chart Examples Page</h1>
-                        <Link to='/'>Home</Link>
+                        <Link to='/'>Home</Link><br />
+                        <Link to='/analytics'>Analytics</Link><br />
                         <h2 className='text-warning'>Chart Bar</h2>
                         <Bar                            
                             data={data}
