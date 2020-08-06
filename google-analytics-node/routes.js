@@ -1,28 +1,15 @@
-var jwt = require('jsonwebtoken');
 require('dotenv').config();
-
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 module.exports = function (app) {
-    app.get('/googleAnalytics', function (req, res) {
-   //     console.log('function: '+analyticsFunction)
-        res.send('Hello ***')
-    })
-    app.get('/getToken', function (req, res) {
-        let token = jwt.sign({
-            data: 'foobar'
-        }, 'secret', { expiresIn: '1h' });
-        console.log('Token: ' + token)
-        res.send(token)
-    })
+   
     app.get('/createFirstGraph', async function (req, res) {        
         const doc = new GoogleSpreadsheet(process.env.REACT_APP_GOOGLE_SPREAD_SHEET);
         await doc.useServiceAccountAuth({
             client_email: process.env.REACT_APP_GOOGLE_ANALYTICS_CLIENT_EMAIL,
             private_key: process.env.REACT_APP_GOOGLE_ANALYTICS_PRIVATE_KEY
         });
-        await doc.loadInfo(); // loads document properties and worksheets
-        console.log('TITLE*: '+doc.title);        
+        await doc.loadInfo(); // loads document properties and worksheets        
         const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id]
         console.log('Sheet: '+sheet.title);
       // get cells
