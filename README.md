@@ -68,6 +68,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 =======
-# ga-charts
-creating charts and adding google analytics
->>>>>>> b63a41293f0f0aac5e82a4a532e09cc48988970d
+
